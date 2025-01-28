@@ -1210,6 +1210,7 @@ describe('Unit: Stage 2 (AST)', () => {
       expectPath(ast, 'children.0.markup.0.name').to.eql('assign');
       expectPath(ast, 'children.0.markup.0.markup.name').to.eql('var1');
 
+
       expectPath(ast, 'children.0.markup.1.type').to.eql('LiquidTag');
       expectPath(ast, 'children.0.markup.1.name').to.eql('if');
 
@@ -1282,7 +1283,7 @@ describe('Unit: Stage 2 (AST)', () => {
       expectPath(ast, 'children.0.body.nodes.0.type').to.eql('LiquidDocExampleNode');
       expectPath(ast, 'children.0.body.nodes.0.exampleContent.type').to.eql('TextNode');
       expectPath(ast, 'children.0.body.nodes.0.exampleContent.value').to.eql(
-        'simple inline example',
+        'simple inline example\n',
       );
 
       ast = toLiquidAST(`
@@ -1295,7 +1296,7 @@ describe('Unit: Stage 2 (AST)', () => {
       expectPath(ast, 'children.0.body.nodes.0.type').to.eql('LiquidDocExampleNode');
       expectPath(ast, 'children.0.body.nodes.0.name').to.eql('example');
       expectPath(ast, 'children.0.body.nodes.0.exampleContent.value').to.eql(
-        'including inline code\nThis is a valid example\nIt can have multiple lines',
+        'including inline code\n        This is a valid example\n        It can have multiple lines\n',
       );
 
       ast = toLiquidAST(`
@@ -1311,7 +1312,7 @@ describe('Unit: Stage 2 (AST)', () => {
       expectPath(ast, 'children.0.body.nodes.0.type').to.eql('LiquidDocExampleNode');
       expectPath(ast, 'children.0.body.nodes.0.name').to.eql('example');
       expectPath(ast, 'children.0.body.nodes.0.exampleContent.value').to.eql(
-        'This is a valid example\nIt can have multiple lines',
+        '\n        This is a valid example\n        It can have multiple lines\n',
       );
       expectPath(ast, 'children.0.body.nodes.1.type').to.eql('LiquidDocParamNode');
       expectPath(ast, 'children.0.body.nodes.1.name').to.eql('param');
