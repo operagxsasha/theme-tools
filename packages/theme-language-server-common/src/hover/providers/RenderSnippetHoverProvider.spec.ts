@@ -16,31 +16,37 @@ describe('Module: RenderSnippetHoverProvider', async () => {
           name: 'title',
           description: 'The title of the product',
           type: 'string',
+          nodeType: 'param',
         },
         {
           name: 'border-radius',
           description: 'The border radius in px',
           type: 'number',
+          nodeType: 'param',
         },
         {
           name: 'no-type',
           description: 'This parameter has no type',
           type: null,
+          nodeType: 'param',
         },
         {
           name: 'no-description',
           description: null,
           type: 'string',
+          nodeType: 'param',
         },
         {
           name: 'no-type-or-description',
           description: null,
           type: null,
+          nodeType: 'param',
         },
       ],
       examples: [
         {
           content: '{{ product }}',
+          nodeType: 'example',
         },
       ],
     },
